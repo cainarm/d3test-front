@@ -1,0 +1,24 @@
+@import '../../stylesheets/styles.scss';
+
+.Hfsection{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    a{
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+        
+
+        &:first-child{
+          margin-right: 10px;
+        }
+    }
+}
+
+.HFReverse{
+    background-color: black;
+
+    a{
+        color: white;
+    }
+}

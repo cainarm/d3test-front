@@ -18,7 +18,7 @@ const Counter = props =>
         </div>
         <div className="col-md-6 text-left">
           <button className="btn btn-primary" onClick={props.increment}>
-            increment
+            INCREMENT_
           </button>
         </div>
       </div>

@@ -1,0 +1,43 @@
+@import '../../stylesheets/styles.scss';
+
+#navbar{
+    width:100%;
+    margin-top: 50px;   
+    margin-bottom: 20px;
+    
+    li{ 
+        a{
+            height: 100px;
+            padding-top:30px;
+            border-bottom: 1px solid $light-grey;
+            color: $green;
+            margin-left: -20px;
+            width: 111%;
+
+            &:hover{
+                background-color: transparent;
+                border-top: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                top: -1px;
+            }
+        }
+    }
+    
+    .active{
+        top: -1px;
+
+        a{
+            border-radius: 0px;
+            border: 0px;
+            color: white;
+            background-color: $green;
+            margin-top: -56px;
+        }
+
+        a:hover, &hover{
+            background-color: $green;
+            top: 0px;
+        }
+    }
+}

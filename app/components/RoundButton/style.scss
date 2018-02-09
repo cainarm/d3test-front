@@ -1,0 +1,21 @@
+@import '../../stylesheets/styles.scss';
+
+.roundButton{
+    height: 55px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 12px 40px;
+    font-size: 13px;
+    border: 1px solid $light-grey;
+    outline: none;
+    background-color: white;
+    border-radius: 100px;
+    font-weight: bold;
+    color: grey;
+
+    &-active{
+        color: white;
+        border-color: $green;
+        background-color: $green;
+    }
+}
