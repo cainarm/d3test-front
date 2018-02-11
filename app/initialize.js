@@ -4,10 +4,9 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import Home from './containers/HomeContainer';
-import createLogger from 'redux-logger';
 import * as SDKInitializer from './libs/SDKInitializer';
 
-const createStoreWithMiddleware = applyMiddleware(createLogger)(createStore);
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 const App = () =>
 	<Provider store={createStoreWithMiddleware(reducers)}>

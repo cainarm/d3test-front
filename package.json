@@ -7,8 +7,7 @@
   "repository": "",
   "scripts": {
     "start": "LOGGY_STACKS=true brunch watch --server -n",
-    "build": "brunch build --production",
-    "test": "jest"
+    "build": "brunch build --production"
   },
   "dependencies": {
     "jquery-mask-plugin": "^1.14.13",
@@ -18,15 +17,15 @@
     "react-credit-cards": "^0.7.0",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
-    "redux": "^3.6.0",
-    "redux-logger": "^3.0.6"
+    "redux": "^3.6.0"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
     "babel-brunch": "~6.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-latest": "^6",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "6.24.1",
+    "babel-preset-stage-1": "^6",
     "bootstrap": "^3.3.7",
     "brunch": "^2",
     "clean-css-brunch": "^2",
