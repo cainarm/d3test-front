@@ -1,17 +1,13 @@
 import React from 'react';
 
-const Row = (props) => {
-    const {className} = props;
+const Row = ({className, children}) => 
+    <div className={`row ${className}`} >{children}</div>
+    
 
-    return(
-        <div className={`row ${className}`} >{props.children}</div>
-    )
-}
 
 Row.defaultProps = {
     className : ""
 }
     
-
 
 export default Row;

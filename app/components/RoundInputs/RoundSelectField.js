@@ -5,16 +5,15 @@ const RoundSelectField = props =>
     <div className="roundInputContainer">
        <label htmlFor={props.name}>{props.label && <a>{props.label} </a> }</label>
        <select 
-            {...props}
             placeholder=" "
+            {...props}
             className={`roundInput ${props.className && props.className}`}
-            component="select" 
         >
             <option value={null}></option>
             {
                 props.data.map(row => {
                     return (
-                        <option value={row.value}>{row.text}</option>
+                        <option value={row.value} key={row.text}>{row.text}</option>
                     )
                 })
             }

@@ -17,7 +17,7 @@ const WarningContainer = ({title, text}) =>
 
 
 WarningContainer.propTypes = {
-    title: PropTypes.title,
+    title: PropTypes.string,
     text: PropTypes.string
 }
 export default WarningContainer;

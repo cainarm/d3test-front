@@ -3,7 +3,6 @@ import RoundButton from './RoundButton';
 import ButtonSwitch from './ButtonSwitch';
 import PageSection from './PageSection';
 import { RoundTextField, RoundSelectField } from './RoundInputs';
-import {required} from '../utils/validator';
 import { fillZero } from '../utils/numeric';
 import Card from 'react-credit-cards';
 import PropTypes from 'prop-types';
@@ -14,6 +13,7 @@ import Row from './Row';
 const styles = {
   securityCode: {width: 190},
   forceFlexRow: {display: 'flex', flexDirection: 'row'},
+  zipLink: {marginTop: 20, color: 'grey', textDecoration: 'underline'},
   creditCard: {marginLeft: 10, marginBottom: 30, float: 'left'}, 
   cardValidityInput: { width: 100, marginRight: 4},
   formButtonsContainer : {marginTop: 30},
@@ -62,9 +62,12 @@ class PaymentForm extends Component{
     highlightFields(){
         this.setState({
             submitted: true
-        })
+        });
 
-        console.log(this.zipCode);
+        if(document.querySelectorAll("input[type=text]:invalid").length > 0){
+            this.props.onFail();
+        }
+            
     }
     
     onChange(e){
@@ -109,16 +112,19 @@ class PaymentForm extends Component{
                     <PageSection
                         title="Qual o seu CEP de cobrança ?"
                     > 
-                        <Col md={6}>
-                            <RoundTextField 
-                                className={this.state.submitted && 'submitted'} 
-                                onChange={this.onChange.bind(this)}
-                                setRef={el => this.zip = el}
-                                name="zipCode" 
-                                label="CEP"
-                                required
-                            />
-                        </Col>
+                    <div style={styles.forceFlexRow}>
+                        <RoundTextField 
+                            className={this.state.submitted && 'submitted'} 
+                            onChange={this.onChange.bind(this)}
+                            setRef={el => this.zip = el}
+                            name="zipCode" 
+                            label="CEP"
+                            placeholder="0000-000"
+                            required
+                        />
+                        <a href="" style={styles.zipLink}>Não sei meu CEP</a>
+                    </div>
+
                     </PageSection>
                     {this.state.chargingAddress &&
                         <PageSection
@@ -199,6 +205,7 @@ class PaymentForm extends Component{
                                     className={this.state.submitted && 'submitted'} 
                                     onChange={this.onChange.bind(this)}
                                     label="Número" 
+                                    placeholder="0000-0000-0000-0000"
                                     setRef={ccn => this.creditCard = ccn}
                                     name="cardNumber"  
                                     required                              
@@ -276,6 +283,7 @@ class PaymentForm extends Component{
                                         {value: 4, text: "4 x R$165" },
                                         {value: 5, text: "5 x R$132" }
                                     ]}
+                                    required
                                 />
                             </Col>
                         </Row>
@@ -297,7 +305,8 @@ class PaymentForm extends Component{
 }
 
 PaymentForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    onFail: PropTypes.func.isRequired
 }
 
 export default PaymentForm;

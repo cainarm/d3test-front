@@ -12,7 +12,7 @@ module.exports = {
   },
   plugins: {
     babel: {
-      presets: ['latest', 'react']
+      presets: ['latest', 'react', "stage-1"]
     },
     autoReload: {
       port: 9485
