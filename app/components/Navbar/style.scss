@@ -40,4 +40,12 @@
             top: 0px;
         }
     }
+
+    @media screen and (max-width: 700px) {
+        margin: 0;
+
+        li a, .active a{
+            margin-top: 0;
+        }
+    }
 }

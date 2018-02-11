@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import RoundButton from '../components/RoundButton';
 import Row  from './Row';
 import Col from './Col';
@@ -24,13 +25,19 @@ export default class ButtonSwitch extends Component{
 
         return (
             <Row {...this.props}>
-                <Col md={3}>
+                <Col md={4}>
                     <RoundButton onClick={this.toggle.bind(this)} active={this.state.active}>{firstOption}</RoundButton>
                 </Col>
-                <Col md={3}>
+                <Col md={4}>
                     <RoundButton onClick={this.toggle.bind(this)} active={!this.state.active}>{secondOption}</RoundButton>
                 </Col>
             </Row>
         );
     }
 };
+
+ButtonSwitch.propTypes = {
+    firstOption: PropTypes.string.isRequired,
+    secondOption: PropTypes.string.isRequired,
+    onToggle: PropTypes.func.isRequired
+}

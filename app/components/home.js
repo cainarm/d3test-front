@@ -1,56 +1,60 @@
-import React from 'react';
+import React, {Component} from 'react';
 import HfSection from './HfSection';
+import Row from'./Row';
+import Col from './Col';
 import Navbar from './Navbar';
-import RoundButton from './RoundButton';
-import ButtonSwitch from './ButtonSwitch';
-import PageSection from './PageSection';
+import PaymentForm from './PaymentForm';
+import PurchaseDetails from './PurchaseDetails';
+import WarningContainer from './WarningContainer';
 
-const Home = props =>
-  <div>
-    <header>
-      <HfSection
-        leftText="EXP_"
-        rightText="Karol com 5K_"
-      />
-    </header>
-    
-    <div className="text-center">
-      <h1 style={{fontWeight: 'bold'}}>Cadastro</h1>
-    </div>
+class Home extends Component{
+  render(){
+    return (
+      <div>
+        <header>
+          <HfSection
+            leftText="EXP_"
+            rightText="Karol com 5K_"
+          />
+        </header>
+        
+        <div className="text-center">
+          <h1 style={{fontWeight: 'bold'}}>Cadastro</h1>
+        </div>
 
-    <Navbar 
-      numbers={4}
-      active={4}
-    />
-    
-    <div className="content">
-      <h3>Pagamento</h3>
-    
-      <PageSection
-        title="Endereço de entrega"
-      > 
-        <ButtonSwitch 
-          firstOption="É o mesmo endereço de entrega"
-          secondOption="É diferente da entrega"
-          onToggle = {() => null}
+        <Navbar 
+          numbers={4}
+          active={4}
         />
-      </PageSection>
-      
-      <PageSection
-        title="Qual o seu CEP de cobrança ?"
-      >
-
-      </PageSection>
-    </div>
-
-    <footer>
-      <HfSection
-        leftText="EXP_"
-        rightText="Karol com 5K_"
-        reverse
-      />
-    </footer>
-  </div>;
+        <div className="content">
+          <Row>
+            <WarningContainer
+              title="Falha ao processar os dados do cartão"
+              text={`Verifique se as informações do seu cartão estão corretas(Nome, Número, Data de validade, Código de Segurança.
+              Se o problema persistir você pode usar outro cartão de crédito ou escolher como forma de pagamento o boleto bancario. 
+              Ou então, se preferir, entre em contato com o seu banco ou adiministradora de cartão de crédito e tente realizar a compra novamente"`}
+            />
+          </Row>
+          <Row> 
+            <Col md={7}>
+              <PaymentForm onSubmit={values => console.log(values)}/>
+            </Col>
+            <Col md={5}>
+              <PurchaseDetails />
+            </Col>
+          </Row>
+        </div>
+        <footer>
+          <HfSection
+            leftText="EXP_"
+            rightText="Karol com 5K_"
+            reverse
+          />
+        </footer>
+      </div>
+    );
+  }
+}
 
 
 export default Home;

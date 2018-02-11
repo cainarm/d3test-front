@@ -1,0 +1,20 @@
+@import '../../stylesheets/styles.scss';
+
+.warningContainer{
+    width: 100%;
+    position: relative;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+
+    span{
+        background-image: $warningIcon ;
+        background-size: 15px 15px;
+        background-repeat: no-repeat;
+        padding-left: 20px;
+        color: #808080;
+    }
+
+    h3{
+        color: $red;
+    }
+}

@@ -1,4 +1,5 @@
 import React from  'react';
+import PropTypes from 'prop-types';
 import Col from '../Col';
 import Row from '../Row';
 
@@ -12,5 +13,10 @@ const Hfsection = ({leftText, rightText, reverse}) =>
         </Col>
     </Row>
 
+Hfsection.propTypes = {
+    leftText: PropTypes.string,
+    rightText: PropTypes.string,
+    reverse: PropTypes.bool
+}
 
 export default Hfsection;

@@ -1,0 +1,42 @@
+@import '../../stylesheets/styles.scss';
+
+.roundInputContainer{
+    .roundInput{
+        height: 55px;
+        padding: 12px 25px;
+        width: 70%;
+        font-size: 13px;
+        border: 1px solid $light-grey;
+        outline: none;
+        background-color: white;
+        border-radius: 100px;
+        position: relative;
+        margin-top:  4px;
+        margin-bottom: 4px;  
+
+        @media screen and (max-width: 700px) {
+            padding: 12px 13px;
+            width: 60%;
+        }      
+    }
+
+    .submitted:invalid{
+        border: 1px solid $red;
+        color: $red;
+        background-image: $warningIcon;
+        background-size: 15px 15px;
+        background-position: 90% 20px;
+        background-repeat: no-repeat;
+    }
+        
+    .submitted:valid:not(:placeholder-shown){
+        border: 1px solid $green;
+        color: $green;
+    }
+
+    a{
+        text-decoration: none;
+        color: grey;
+        margin-right: 10px;
+    }
+}
